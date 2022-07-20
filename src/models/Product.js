@@ -45,6 +45,7 @@ const ProductSchema = new Schema({
     type: String,
   },
   ProductVariants: [ProductVariant],
+  Crops: [Number],
 });
 
 ProductSchema.plugin(mongoosastic);
