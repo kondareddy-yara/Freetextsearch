@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "seed": "node src/data/import.js --import",
+    "delete-seed": "node src/data/import.js --delete"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
