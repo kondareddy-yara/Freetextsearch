@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const mongoosastic = require("mongoosastic");
+const esClient = require("../client/EsConfig");
 
 const Schema = mongoose.Schema;
 
@@ -48,7 +49,13 @@ const ProductSchema = new Schema({
   Crops: [Number],
 });
 
-ProductSchema.plugin(mongoosastic);
+ProductSchema.plugin(mongoosastic, { esClient });
+
 const Product = mongoose.model("Product", ProductSchema, "products");
+
+const stream = Product.synchronize();
+stream.on("error", function (err) {
+  console.log("Error while synchronizing" + err);
+});
 
 module.exports = Product;
