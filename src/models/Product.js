@@ -59,45 +59,4 @@ ProductSchema.plugin(mongoosastic, { esClient });
 
 const Product = mongoose.model("Product", ProductSchema, "products");
 
-//Only run one time as elastic search only creates mapping once and it cannot be overridden
-
-// Product.createMapping({
-//   settings: {
-//     index: {
-//       max_ngram_diff: 2,
-//     },
-//     analysis: {
-//       analyzer: {
-//         ngramtokenizer: {
-//           tokenizer: "standard",
-//           filter: ["4_4_grams", "lowercase"],
-//         },
-//       },
-//       filter: {
-//         "4_4_grams": {
-//           type: "ngram",
-//           min_gram: 4,
-//           max_gram: 4,
-//         },
-//       },
-//     },
-//   },
-//   mappings: {
-//     properties: {
-//       name: {
-//         type: "text",
-//         analyzer: "ngramtokenizer",
-//       },
-//       fertiliser_group_name: {
-//         type: "text",
-//         analyzer: "ngramtokenizer",
-//       },
-//       categoryName: {
-//         type: "text",
-//         analyzer: "ngramtokenizer",
-//       },
-//     },
-//   },
-// });
-
 module.exports = Product;
