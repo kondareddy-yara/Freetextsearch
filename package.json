@@ -8,6 +8,7 @@
     "delete-seed": "node src/data/import.js --delete"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^8.2.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
