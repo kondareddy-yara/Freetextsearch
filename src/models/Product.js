@@ -20,12 +20,15 @@ const ProductVariant = new Schema({
 const ProductSchema = new Schema({
   name: {
     type: String,
+    es_indexed: true,
   },
   fertiliser_group_name: {
     type: String,
+    es_indexed: true,
   },
   description: {
     type: String,
+    es_indexed: true,
   },
   created_at: {
     type: Date,
@@ -35,15 +38,18 @@ const ProductSchema = new Schema({
   },
   Country_of_origin: {
     type: String,
+    es_indexed: true,
   },
   Manufacturer_name: {
     type: String,
+    es_indexed: true,
   },
   productCategoryId: {
     type: Number,
   },
   categoryName: {
     type: String,
+    es_indexed: true,
   },
   ProductVariants: [ProductVariant],
   Crops: [Number],
@@ -52,10 +58,5 @@ const ProductSchema = new Schema({
 ProductSchema.plugin(mongoosastic, { esClient });
 
 const Product = mongoose.model("Product", ProductSchema, "products");
-
-const stream = Product.synchronize();
-stream.on("error", function (err) {
-  console.log("Error while synchronizing" + err);
-});
 
 module.exports = Product;

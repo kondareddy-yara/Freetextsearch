@@ -1,20 +1,10 @@
 const Product = require("../models/Product");
 
-const fields = [
-  "name",
-  "fertiliser_group_name",
-  "description",
-  "Country_of_origin",
-  "Manufacturer_name",
-  "categoryName",
-];
-
 exports.searchProducts = async (req, res) => {
   try {
     const products = await Product.search({
-      multi_match: {
-        query: "calcium",
-        fields,
+      query_string: {
+        query: req.query.search,
       },
     });
     res.status(200).json({
