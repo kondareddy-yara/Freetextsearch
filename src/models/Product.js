@@ -70,15 +70,14 @@ const Product = mongoose.model("Product", ProductSchema, "products");
 //       analyzer: {
 //         ngramtokenizer: {
 //           tokenizer: "standard",
-//           filter: ["3_5_grams", "lowercase"],
+//           filter: ["4_4_grams", "lowercase"],
 //         },
 //       },
 //       filter: {
-//         "3_5_grams": {
-// need to decide best size
+//         "4_4_grams": {
 //           type: "ngram",
-//           min_gram: 3,
-//           max_gram: 5,
+//           min_gram: 4,
+//           max_gram: 4,
 //         },
 //       },
 //     },

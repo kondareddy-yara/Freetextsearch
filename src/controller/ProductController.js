@@ -11,20 +11,30 @@ const fields = [
   "ProductVariants.packaging",
 ];
 
+const filterResponse = (products) => {
+  const filteredProducts = products.body.hits.hits.map(
+    (product) => product["_source"]
+  );
+  return filteredProducts;
+};
+
 exports.searchProducts = async (req, res) => {
   try {
     const products = await Product.search({
       multi_match: {
         query: req.query.search,
         fields,
-        fuzziness: 2,
+        fuzziness: 1,
       },
     });
+
+    const filteredProducts = filterResponse(products);
+
     res.status(200).json({
       status: "success",
-      results: products.body.hits.hits.length,
+      results: filteredProducts.length,
       data: {
-        products: products.body.hits.hits,
+        products: filteredProducts,
       },
     });
   } catch (err) {
