@@ -20,11 +20,13 @@ const ProductVariant = new Schema({
 const ProductSchema = new Schema({
   name: {
     type: String,
-    es_indexed: true
+    es_indexed: true,
+    es_boost: 1.5
   },
   fertiliser_group_name: {
     type: String,
-    es_indexed: true
+    es_indexed: true,
+    es_boost: 1.5
   },
   description: {
     type: String,
@@ -49,7 +51,8 @@ const ProductSchema = new Schema({
   },
   categoryName: {
     type: String,
-    es_indexed: true
+    es_indexed: true,
+    es_boost: 2
   },
   ProductVariants: [ProductVariant],
   Crops: [Number]
