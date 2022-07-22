@@ -7,9 +7,9 @@ const fields = [
   "Country_of_origin",
   "Manufacturer_name",
   "categoryName^2",
-  "ProductVariants.size",
+  // "ProductVariants.size",
   "ProductVariants.packaging",
-  "Crops.cropName^3"
+  "Crops.cropName^4",
 ];
 
 const filterResponse = (products) => {
