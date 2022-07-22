@@ -17,6 +17,10 @@ const ProductVariant = new Schema({
   active: { type: Boolean },
 });
 
+const crop = new Schema({
+  cropName: { type: String, es_indexed: true }
+});
+
 const ProductSchema = new Schema({
   name: {
     type: String,
@@ -52,7 +56,7 @@ const ProductSchema = new Schema({
     es_indexed: true,
   },
   ProductVariants: [ProductVariant],
-  Crops: [Number],
+  Crops: [crop],
 });
 
 ProductSchema.plugin(mongoosastic, { esClient });

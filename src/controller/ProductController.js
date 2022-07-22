@@ -9,6 +9,7 @@ const fields = [
   "categoryName^2",
   "ProductVariants.size",
   "ProductVariants.packaging",
+  "Crops.cropName^3"
 ];
 
 const filterResponse = (products) => {
