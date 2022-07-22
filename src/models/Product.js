@@ -12,13 +12,13 @@ const ProductVariant = new Schema({
   sku: { type: String },
   size: { type: String, es_indexed: true },
   packaging: { type: String, es_indexed: true },
-  photo: { type: String },
+  photo: { type: String, es_indexed: true },
   internal_id: { type: String },
   active: { type: Boolean },
 });
 
 const crop = new Schema({
-  cropName: { type: String, es_indexed: true }
+  cropName: { type: String, es_indexed: true },
 });
 
 const ProductSchema = new Schema({
