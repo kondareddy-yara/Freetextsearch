@@ -21,13 +21,16 @@ const filterResponse = (products) => {
 
 exports.searchProducts = async (req, res) => {
   try {
-    const products = await Product.search({
-      multi_match: {
-        query: req.query.search,
-        fields,
-        fuzziness: 1,
+    const products = await Product.search(
+      {
+        multi_match: {
+          query: req.query.search,
+          fields,
+          fuzziness: 1,
+        },
       },
-    });
+      { from: 0, size: 80 }
+    );
 
     const filteredProducts = filterResponse(products);
 
