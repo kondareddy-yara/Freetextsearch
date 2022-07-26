@@ -7,7 +7,6 @@ const fields = [
   "Country_of_origin",
   "Manufacturer_name",
   "categoryName^2",
-  // "ProductVariants.size",
   "ProductVariants.packaging",
   "Crops.cropName^4",
 ];
@@ -29,7 +28,7 @@ exports.searchProducts = async (req, res) => {
           fuzziness: 1,
         },
       },
-      { from: 0, size: 80 }
+      { from: 0, size: 10 }
     );
 
     const filteredProducts = filterResponse(products);
