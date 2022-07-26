@@ -40,5 +40,5 @@ npm start
 6. You are good to explore the api now.
 
 ```
-http://localhost:8000/api/v1/products?search=$SEARCHTERM
+http://localhost:4000/api/v1/products?search=$SEARCHTERM
 ```
